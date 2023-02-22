@@ -1,0 +1,8 @@
+Supplement to: "A conserved hymenopteran-specific family of cytochrome P450s protect bee pollinators from toxic nectar alkaloids"
+Content created by Elena Maria Beck and Michael Edmund Beck, Feb. 2023
+
+Files in this folder:
+    Alkaloids_Similarity.ipynb      : Jupyter-notebook, code to recreate similarity calculations 
+    Alkaloids_Similarity.py         : same content, but as executable python-conserved
+    Alkaloids_Similarity.html       : html-version of Jupyter notebook, for viewing purposes
+    Alkaloids_Similarity_Graph.html : html-file for interactive vizualisation of alkaloid similarity Alkaloids_Similarity_Graph

@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>similarity; threshold=0.3</h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 1000px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "(S)-Nicotine", "label": "(S)-Nicotine", "shape": "dot"}, {"id": "Anabasine", "label": "Anabasine", "shape": "dot"}, {"id": "Atropine", "label": "Atropine", "shape": "dot"}, {"id": "Cytisine", "label": "Cytisine", "shape": "dot"}, {"id": "Echimidine", "label": "Echimidine", "shape": "dot"}, {"id": "Scopolamine", "label": "Scopolamine", "shape": "dot"}, {"id": "Caffeine", "label": "Caffeine", "shape": "dot"}, {"id": "Coumarin", "label": "Coumarin", "shape": "dot"}]);
+        edges = new vis.DataSet([{"font": "arial", "from": "(S)-Nicotine", "label": "68%", "size": 36, "to": "Anabasine", "value": 0.68, "weight": 0.68}, {"font": "arial", "from": "(S)-Nicotine", "label": "40%", "size": 36, "to": "Atropine", "value": 0.4, "weight": 0.4}, {"font": "arial", "from": "(S)-Nicotine", "label": "37%", "size": 36, "to": "Cytisine", "value": 0.37, "weight": 0.37}, {"font": "arial", "from": "(S)-Nicotine", "label": "39%", "size": 36, "to": "Scopolamine", "value": 0.39, "weight": 0.39}, {"font": "arial", "from": "Anabasine", "label": "35%", "size": 36, "to": "Atropine", "value": 0.35, "weight": 0.35}, {"font": "arial", "from": "Anabasine", "label": "44%", "size": 36, "to": "Cytisine", "value": 0.44, "weight": 0.44}, {"font": "arial", "from": "Anabasine", "label": "32%", "size": 36, "to": "Scopolamine", "value": 0.32, "weight": 0.32}, {"font": "arial", "from": "Atropine", "label": "36%", "size": 36, "to": "Cytisine", "value": 0.36, "weight": 0.36}, {"font": "arial", "from": "Atropine", "label": "36%", "size": 36, "to": "Echimidine", "value": 0.36, "weight": 0.36}, {"font": "arial", "from": "Atropine", "label": "88%", "size": 36, "to": "Scopolamine", "value": 0.88, "weight": 0.88}, {"font": "arial", "from": "Cytisine", "label": "35%", "size": 36, "to": "Scopolamine", "value": 0.35, "weight": 0.35}, {"font": "arial", "from": "Cytisine", "label": "33%", "size": 36, "to": "Caffeine", "value": 0.33, "weight": 0.33}, {"font": "arial", "from": "Cytisine", "label": "38%", "size": 36, "to": "Coumarin", "value": 0.38, "weight": 0.38}, {"font": "arial", "from": "Echimidine", "label": "38%", "size": 36, "to": "Scopolamine", "value": 0.38, "weight": 0.38}, {"font": "arial", "from": "Caffeine", "label": "32%", "size": 36, "to": "Coumarin", "value": 0.32, "weight": 0.32}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"font": {"size": 22}, "shape": "text", "shapeProperties": {"borderRadius": 7, "useImageSize": true}}, "edges": {"color": {"inherit": true}, "font": {"size": 22}, "smooth": false}, "physics": {"barnesHut": {"gravitationalConstant": -10400, "centralGravity": 0, "springLength": 145, "springConstant": 0.05, "damping": 0.09, "avoidOverlap": 0.41}, "minVelocity": 0.75}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
